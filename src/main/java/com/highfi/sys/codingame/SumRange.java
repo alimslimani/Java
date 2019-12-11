@@ -1,23 +1,18 @@
 package com.highfi.sys.codingame;
 
+import java.util.Arrays;
+
 public class SumRange {
 
     public static void main(String[] args) {
-        int[] ints ={1,20,3,10,-2,100};
-        int res = sumRange(ints);
-        System.out.println(res);
+        int[] ints = {1, 20, 3, 10, -2, 100};
+        System.out.println("Result: " + sumRange(ints));
+        System.out.println("Expected result: 130");
     }
 
     private static int sumRange(int[] ints) {
-        int sum=0;
-        if(ints.length>0){
-            for(int i=0;i<ints.length;i++){
-                int n = ints[i];
-                if(n>=10 || n<=100){
-                    sum+=n;
-                }
-            }
-        }
+        int sum = 0;
+        sum = Arrays.stream(ints).filter(value -> value >= 10 && value <= 100).sum();
         return sum;
     }
 }
